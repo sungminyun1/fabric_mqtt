@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sungminyun1/fabric_mqtt/issues"
   },
-  "homepage": "https://github.com/sungminyun1/fabric_mqtt#readme"
+  "homepage": "https://github.com/sungminyun1/fabric_mqtt#readme",
+  "dependencies": {
+    "fabric": "^5.2.1"
+  }
 }
