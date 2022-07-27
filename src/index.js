@@ -1,4 +1,6 @@
 
+
+
 const draw = {};
 
 
@@ -23,6 +25,7 @@ draw.init = () => {
         if(options.target){
            draw.mouseFlag = true;
         }
+        draw.ws1.send('test test')
     });
 
     draw.canvas.on('mouse:up', function(options) {
@@ -38,18 +41,8 @@ draw.init = () => {
           console.log(options.e.clientX, options.e.clientY);
         }
     });
+    document.getElementById("cli1").onclick = function(){
 
-    const client = new Paho.MQTT.Client('127.0.0.1', 1883 , "clientId");
-    client.connect({onSuccess:onConnect});
+        draw.ws1 = new WebSocket("ws://localhost:30001");
+    }
 }
-
-function onConnect() {
-    // Once a connection has been made, make a subscription and send a message.
-    console.log("onConnect");
-    client.subscribe("World");
-    message = new Paho.MQTT.Message("Hello");
-    message.destinationName = "World";
-    client.send(message);
-  }
-
-// module.exports = draw
